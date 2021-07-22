@@ -1,0 +1,143 @@
+https://database.guide/category/database-concepts/
+
+---------------------------------------------------------------
+How to connect another server?
+
+Server Objects -> Linked Servers -> New Linked Server
+
+Provide Remote Server Name.
+
+Select Remote Server Type (SQL Server or Other).
+
+Select Security -> Be made using this security context and provide login and password of remote server.
+
+Click OK and you are done !!
+---------------------------------------------------------------
+
+The order of SQL statement clause execution-
+
+FROM -> WHERE -> GROUP BY -> HAVING -> SELECT -> ORDER BY
+
+FROM -> WHERE -> GROUP BY -> HAVING -> SELECT -> DISTINCT -> ORDER BY -> LIMIT .
+---------------------------------------------------------------
+User define funtions:
+
+CREATE FUNCTION [database_name.]function_name (parameters)
+RETURNS data_type/tanle AS
+BEGIN
+    SQL statements
+    RETURN value
+END;
+
+1>Return datatype
+2>return table
+
+select * from Funtion();
+select * from E inner join Function() D on E.ID=D.ID--this doesn't work
+Inner join doesn't work with table valued funtion
+Cross Apply semantaically work as inner join
+Outer Apply work as left outer join include null
+---------------------------------------------------------------
+
+IF is a control of flow statement; it indicates which T-SQL statement to evaluate next, based on a condition.
+
+CASE is a function -- it simply returns a value.
+---------------------------------------------------------------
+Remove duplicate values
+
+delete from rmduplicate where id in(
+select a.id from(
+select *,ROW_NUMBER()OVER(PARTITION BY FirstName,LastName,Country order by id) AS ROWN from rmduplicate )a
+where rown>1
+)
+
+WITH CTE([FirstName], 
+    [LastName], 
+    [Country], 
+    DuplicateCount)
+AS (SELECT [FirstName], 
+           [LastName], 
+           [Country], 
+           ROW_NUMBER() OVER(PARTITION BY [FirstName], 
+                                          [LastName], 
+                                          [Country]
+           ORDER BY ID) AS DuplicateCount
+    FROM empdup)
+DELETE FROM CTE
+WHERE DuplicateCount > 1;
+--------------------------------------------------------------------
++---+------------+------+------------+
+| V | ROW_NUMBER | RANK | DENSE_RANK |
++---+------------+------+------------+
+| a |          1 |    1 |          1 |
+| a |          2 |    1 |          1 |
+| a |          3 |    1 |          1 |
+| b |          4 |    4 |          2 |
+| c |          5 |    5 |          3 |
+| c |          6 |    5 |          3 |
+| d |          7 |    7 |          4 |
+| e |          8 |    8 |          5 |
++---+------------+------+------------+
+
+--------------------------------------------------------------------
+SELECT lname, fname
+FROM Customer
+WHERE NOT EXISTS (SELECT * 
+                  FROM Orders 
+                  WHERE Customers.customer_id = Orders.c_id);
+--------------------------------------------------------------------
+UPDATE dbo.TestStudents  
+SET     LASTNAME =  CASE  
+                        WHEN LASTNAME = 'AAA' THEN 'BBB' 
+                        WHEN LASTNAME = 'CCC' THEN 'DDD' 
+                        WHEN LASTNAME = 'EEE' THEN 'FFF' 
+                        ELSE LASTNAME
+                    END 
+WHERE   LASTNAME IN ('AAA', 'CCC', 'EEE')
+
+CASE WHEN POSITION BETWEEN 0 AND 1 THEN
+CASE WHEN ANIMAL LIKE '%CAT%' THEN
+CASE WHENE POS<=3 AND CLICKED='YES' THEN E.SEARCH==>count(CASE WHENE POS<=3 AND CLICKED='YES' THEN E.SEARCH)
+--------------------------------------------------------------------
+View is a result of a query saved in Db
+ It has two types 1.simple view 2.complex view . In simple view We create view on single base table That's why we can perform all DML operations.it also called as Updatable view. But In case of Complex view We create view on multiple base tables that's why we cannot perform DML operations It is ReadOnly View (Only Select Operation).
+--------------------------------------------------------------------
+Temp table we can create index
+create table #blah (fld int)
+create nonclustered index idx on #blah (fld)
+--------------------------------------------------------------------
+We can create indexs on both view and materialzed views
+Materialized views(may also be indexed.)
+They are similar to regular views, in that they are a logical view of your data (based on a select statement), however, the underlying query result set has been saved to a table. The upside of this is that when you query a materialized view, you are querying a table, which may also be indexed.
+--------------------------------------------------------------------
+UNION performs a DISTINCT on the result set, eliminating any duplicate rows.
+
+UNION ALL does not remove duplicates, and it therefore faster than UNION.
+--------------------------------------------------------------------
+Fact table — stores the performance measurements resulting from an organizations’ business process events.
+
+Star schemas — are dimensional structures deployed in RDBMS, consisting of fact tables linked to associated dimension tables via primary/foreign key relationships
+
+--------------------------------------------------------------------
+What is a Slowly Changing Dimension?
+
+A Slowly Changing Dimension (SCD) is a dimension that stores and manages both current and historical data over time in a data warehouse. It is considered and implemented as one of the most critical ETL tasks in tracking the history of dimension records.
+
+There are three types of SCDs and you can use Warehouse Builder to define, deploy, and load all three types of SCDs.
+
+What are the three types of SCDs?
+
+The three types of SCDs are:
+
+Type 1 SCDs - Overwriting
+
+In a Type 1 SCD the new data overwrites the existing data. Thus the existing data is lost as it is not stored anywhere else. This is the default type of dimension you create. You do not need to specify any additional information to create a Type 1 SCD.
+
+Type 2 SCDs - Creating another dimension record
+
+A Type 2 SCD retains the full history of values. When the value of a chosen attribute changes, the current record is closed. A new record is created with the changed data values and this new record becomes the current record. Each record contains the effective time and expiration time to identify the time period between which the record was active.
+
+Type 3 SCDs - Creating a current value field
+
+A Type 3 SCD stores two versions of values for certain selected level attributes. Each record stores the previous value and the current value of the selected attribute. When the value of any of the selected attributes changes, the current value is stored as the old value and the new value becomes the current value.
+--------------------------------------------------------------------
