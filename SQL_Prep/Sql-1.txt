@@ -1,0 +1,40 @@
+1. Can the PRIMARY KEY be NULL?
+
+2. Can the FOREIGN KEY be NULL?
+
+3. Can the UNIQUE KEY be NULL?
+
+4. Using the Employee table which has the Department column, give me a query which summarizes the number of employees by department.
+
+5. What is an INNER JOIN?
+
+6. What is a LEFT JOIN?
+
+7. How a LEFT JOIN different from a RIGHT JOIN?
+
+8. In a LEFT JOIN, can you use a NULLABLE column to test for non-matching rows?
+	No, Becuase nUll values added sql after it's not find any reslut.this will afterm join
+
+9. How do you make a subquery into a derived table?
+
+10. What is the safest string date format?
+
+11. Your stored procedure uses a cursor and works well in the test database with a few thousands rows. Can you deploy it to production on tables with millions of rows?
+
+12. Can you use user-defined function instead of a stored procedure?
+
+13. Can you use a function on a column in a WHERE condition?
+
+14. What is the difference between LEN and DATALENGTH functions?
+
+15. Is collation a table-level property?
+
+16. Do you use ' ' or SPACE(1) in a concatenation?
+
+17. How do you convert from a string date 'yyyyddmm' to datetime?
+
+18. In a WHERE condition with datetime column, will OrderDate = '2016-02-01' include the entire day?
+
+19. Give me a list of string functions.
+
+20. The CEO wants to know some figures ad-hoc. You make up a query. How would you email the results?
