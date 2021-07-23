@@ -12,7 +12,7 @@
 12. Table valued functions vs With CTE
 13. Normalizations VS Denormalizations
 14. Window functions Row Number(),Rank,DenseRank
-15. Dimension,Facts,SCD-1,2,3,S
+15. Dimension,Facts,SCD-1,2,3,Star schema,Snow flake schema
 16. Data Parttions-vertical, Horizantal
 17. Indexes-Clusted,Non-Clusterd and Columstore
 18. How SQL flow works
