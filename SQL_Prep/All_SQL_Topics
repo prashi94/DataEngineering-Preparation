@@ -1,4 +1,4 @@
-1. PK,FK,UK,Surrogate keys
+**1. PK,FK,UK,Surrogate keys**
 2. Joins- Inner,Left,Right and Full outer joins--> Cross join, self join and Exist
 3. Null Values joins
 4. One-To-One, One-To-Many
