@@ -1,0 +1,23 @@
+	1. PK,FK,UK,Surrogate keys
+	2. Joins- Inner,Left,Right and Full outer joins--> Cross join, self join and Exist
+	3. Null Values joins
+	4. One-To-One, One-To-Many
+	5. Update, Case when Then, IF and else, With CTE & Recursions(hierarchy data)
+	6. Union vs Union All
+	7. Procedures, Functions
+	8. Procedures IN, OUT and In/out variables
+	9. Temp variable vs Temp table (Index creation)
+	10. Sub queries and Derived tables
+	11. Views vs Materialized views(Index Creation)
+	12. Table valued functions vs With CTE
+	13. Normalizations VS Denormalizations
+	14. Window functions Row Number(),Rank,DenseRank
+	15. Dimension,Facts,SCD-1,2,3,S
+	16. Data Parttions-vertical, Horizantal
+	17. Indexes-Clusted,Non-Clusterd and Columstore
+	18. How SQL flow works
+	19. SQL profiles->tuning advisors
+	20. Deadlocks 
+	21. Performance tuning -Logical reads,lazyspool
+	22. Handling Late dimensions
+  23. How to connect other DB's
