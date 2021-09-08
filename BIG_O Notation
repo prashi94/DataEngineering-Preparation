@@ -1,0 +1,15 @@
+Knowing Big O notation is critical to passing the technical interviews at FAANG, especially for #softwareengineering and #dataengineering.
+
+Here's a quick guide of Big O and how to compare things.
+
+Big O notation is written like a function. For things that are done in constant time it's written O(1). Example of things that can be done in constant time: accessing a hash map element with its key, accessing an array element with its index, jumping to the next element in a linked list.
+
+For things that aren't constant time operations, the time they take usually scales with the amount of data you give it. For example, looping over an array to find the maximum value takes O(n) operations because you have to check every element of an array of size n to figure out the right value.
+
+Doing a single for loop is generally an O(n) operation. Checking to see if an item is in a list is O(n). Checking to see if an item is in a hashmap or a set is O(1). Using lists where you should be using sets is a common mistake inexperienced programmers make.
+
+Here's a list of run time complexities and the hierarchy associated with them. << meaning "much faster than"
+
+O(1) << O(log n) << O(n) << O(n log n) << O (n^2) << O(n!) << O(n^n)
+
+Different algorithms will grow in complexity at different rates as you scale the data up. When n < 10, pretty much all of these algorithms will perform at nearly identical run times. When n is in the millions or billions, some of these algorithms will grind to a halt and others will be robust.
