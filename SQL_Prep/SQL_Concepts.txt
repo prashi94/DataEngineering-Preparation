@@ -109,6 +109,11 @@ create nonclustered index idx on #blah (fld)
 We can create indexs on both view and materialzed views
 Materialized views(may also be indexed.)
 They are similar to regular views, in that they are a logical view of your data (based on a select statement), however, the underlying query result set has been saved to a table. The upside of this is that when you query a materialized view, you are querying a table, which may also be indexed.
+
+materialized view:
+the execution speed of a query is so important that a developer is willing to trade increased disk space use for faster response, by creating a materialized view.
+This technique is most useful when the query involves many joins of large tables, or any other SQL feature that could contribute to long execution times. You might encounter this in a Web project, where the site visitor simply can’t be kept waiting while the query runs.
+
 --------------------------------------------------------------------
 UNION performs a DISTINCT on the result set, eliminating any duplicate rows.
 
@@ -141,3 +146,7 @@ Type 3 SCDs - Creating a current value field
 
 A Type 3 SCD stores two versions of values for certain selected level attributes. Each record stores the previous value and the current value of the selected attribute. When the value of any of the selected attributes changes, the current value is stored as the old value and the new value becomes the current value.
 --------------------------------------------------------------------
+Index:
+An index, as you would expect, is a data structure that the database uses to find records within a table more quickly. Indexes are built on one or more columns of a table
+Order by is expensive query when you are using index as it need to change strcture
+
